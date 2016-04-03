@@ -8,8 +8,8 @@ class Summerizr
         
         #Provide authentication credentials
         Octokit.configure do |c|
-            c.login = 'sellnat77'
-            c.password = 'teleport77'
+            c.login = '******'
+            c.password = '********'
         end
 
         # Fetch the current user
