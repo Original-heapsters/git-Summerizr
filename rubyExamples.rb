@@ -8,18 +8,36 @@ class Summerizr
         
         #Provide authentication credentials
         Octokit.configure do |c|
-            c.login = '******'
-            c.password = '********'
+            c.login = '*********'
+            c.password = '********8'
         end
 
         # Fetch the current user
         curr_user = Octokit.user
         
         puts 'before'
-        curr_user.fields.each do |name,val, unknown|
-            info = "#{name} :: #{val} :: #{unknown}"
-            puts info
-        end
+        
+        repo = Octokit.repo 'Original-heapsters/git-Summerizr'
+        rel = repo.rels[:issues]
+        
+                
+        obj =  rel.get(:uri => {:number => 1}).data
+        
+        obj.each do |x| puts x end
+        
+        
+        #curr_user.fields.each do |name|
+            
+            
+        #    id = ":#{name}"
+        #    puts id.to_str
+        #    if id.to_str == ":repos_url"
+            
+        #        puts id
+        #        info = curr_user.rels[id].get.data
+        #        puts info
+        #    end
+        #end
         puts 'after'
     end
 end
