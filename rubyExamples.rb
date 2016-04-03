@@ -4,12 +4,28 @@ require 'octokit'
 
 class Summerizr
 
+    def take_userlogin
+        user_flag = false
+        @username = nil
+        @password = nil
+        f = File.open("user-login.txt","r")
+        f.each_line do |line|
+            if !user_flag
+                @username = line
+                user_flag = true
+            else 
+                @password = line
+            end
+        end
+        return @username, @password
+    end
+
     def login_client
-        
+
         #Provide authentication credentials
         Octokit.configure do |c|
-            c.login = '*********'
-            c.password = '********8'
+            c.login = u
+            c.password = p
         end
 
         # Fetch the current user
@@ -43,5 +59,7 @@ class Summerizr
 end
 
 test1 = Summerizr.new
-
 test1.login_client
+ u,p =test1.take_userlogin 
+ puts u
+ puts p
