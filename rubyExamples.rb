@@ -8,15 +8,18 @@ class Summerizr
         
         #Provide authentication credentials
         Octokit.configure do |c|
-            c.login = '**********'
-            c.password = '**********'
+            c.login = '***REMOVED***'
+            c.password = 'teleport77'
         end
 
         # Fetch the current user
         curr_user = Octokit.user
         
         puts 'before'
-        puts curr_user.fields
+        curr_user.fields.each do |name,val, unknown|
+            info = "#{name} :: #{val} :: #{unknown}"
+            puts info
+        end
         puts 'after'
     end
 end
