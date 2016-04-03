@@ -4,18 +4,10 @@ require 'octokit'
 
 class Summerizr
 
+<<<<<<< HEAD
     def initialize
         $curr_user = nil
-		#Provide authentication credentials
-        uName,uPass = self.take_userlogin
-        
-        #Provide authentication credentials
-        Octokit.configure do |c|
-            c.login = uName
-            c.password = uPass
-        end
-    end
-
+=======
     def take_userlogin
         user_flag = false
         @username = nil
@@ -32,6 +24,28 @@ class Summerizr
         return @username, @password
     end
 
+    def login_client
+
+>>>>>>> b5e09cc55657dd191aee03f67b4c77665cbd94be
+        #Provide authentication credentials
+        uName,uPass = self.get_crednetials
+        
+        Octokit.configure do |c|
+<<<<<<< HEAD
+            c.login = uName
+            c.password = uPass
+=======
+            c.login = u
+            c.password = p
+>>>>>>> b5e09cc55657dd191aee03f67b4c77665cbd94be
+        end
+    end
+    
+    def get_crednetials
+    
+        
+        return '********','**********'
+    end
 
     def setup_user
         
@@ -70,5 +84,12 @@ class Summerizr
 end
 
 test1 = Summerizr.new
+<<<<<<< HEAD
 
 test1.setup_user
+=======
+test1.login_client
+ u,p =test1.take_userlogin 
+ puts u
+ puts p
+>>>>>>> b5e09cc55657dd191aee03f67b4c77665cbd94be
