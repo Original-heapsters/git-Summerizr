@@ -4,16 +4,27 @@ require 'octokit'
 
 class Summerizr
 
-    def login_client
-        
+    def initialize
+        $curr_user = nil
         #Provide authentication credentials
+        uName,uPass = self.get_crednetials
+        
         Octokit.configure do |c|
-            c.login = '*********'
-            c.password = '********8'
+            c.login = uName
+            c.password = uPass
         end
+    end
+    
+    def get_crednetials
+    
+        
+        return 'sellnat77','teleport77'
+    end
 
+    def setup_user
+        
         # Fetch the current user
-        curr_user = Octokit.user
+        $curr_user = Octokit.user
         
         puts 'before'
         
@@ -40,8 +51,9 @@ class Summerizr
         #end
         puts 'after'
     end
+    
 end
 
 test1 = Summerizr.new
 
-test1.login_client
+test1.setup_user
