@@ -18,7 +18,7 @@ class Summerizr
     def get_crednetials
     
         
-        return 'sellnat77','teleport77'
+        return '********','**********'
     end
 
     def setup_user
@@ -50,6 +50,9 @@ class Summerizr
         #    end
         #end
         puts 'after'
+    end
+    
+    def iterate_rel (rel_id)
     end
     
 end
